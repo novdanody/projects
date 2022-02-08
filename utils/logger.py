@@ -4,7 +4,7 @@ import logging
 import threading
 
 logger = logging.getLogger()
-logger.setLevel("logging.DEBUG")
+logger.setLevel(logging.DEBUG)
 logFormatter = logging.Formatter(
     "%(asctime)s [%(levelname)-5.5s] [%(processName)s] %(message)s")
 
