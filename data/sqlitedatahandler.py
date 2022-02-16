@@ -1,5 +1,6 @@
 from data.datahandler import DataHandler
 from utils.sqlitehandle import SQLiteHandle
+from utils.logger import logger
 
 
 class SQLiteDataHandler(DataHandler):
@@ -26,6 +27,7 @@ class SQLiteDataHandler(DataHandler):
         db_name = self.get_local_filename()
         table_name = self.get_table_name()
         with SQLiteHandle(db_name) as handle:
+            logger.info("Saving table %s in db %s", table_name, db_name)
             data.to_sql(table_name, handle.conn, if_exists=insertion_method, index=False)
 
     def clear(self):
